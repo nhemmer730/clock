@@ -22,10 +22,8 @@
        <option value="tokyo">Tokyo 🇯🇵  </option>
       <option value="paris">Paris  🇫🇷 </option>
       <option value="sydney">Sydney 🇦🇺 </option>
-     
     </select>
     <script>
-
        function showSelectedCountry(event) {
          if (event.target.value==="tokyo") {
          let tokyoTime = moment()
@@ -49,7 +47,6 @@
         sydneyElement = alert(`It is ${sydneyTime}`);
        }
       }
-
     let countriesSelect = document.querySelector("#countries");
     countriesSelect.addEventListener("change", showSelectedCountry);
   </script>
