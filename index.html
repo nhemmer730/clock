@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/dbv5eym.css">
-    <title>City Clock</title>
+    <title>Dropdown Clock</title>
     <style>
     select {
     font-family: "marigny", sans-serif;
@@ -19,27 +19,37 @@
 <body>
      <label for="countries"></label>
      <select id="countries">
-    <option value="">Select a city  </option>
+       <option value="tokyo">Tokyo 🇯🇵  </option>
       <option value="paris">Paris  🇫🇷 </option>
       <option value="sydney">Sydney 🇦🇺 </option>
-      <option value="tokyo">Tokyo 🇯🇵  </option>
+     
     </select>
     <script>
-     function showSelectedCountry(event) {
-            let tokyoTime = moment()
+
+       function showSelectedCountry(event) {
+         if (event.target.value==="tokyo") {
+         let tokyoTime = moment()
                 .tz("Asia/Tokyo")
                 .format("dddd, MMMM D, YYYY h:mm A");
             let tokyoElement = document.querySelector("#tokyo");
-             tokyoElement.innerHTML = alert(`It is ${tokyoTime}`);
-
+             tokyoElement.innerHTML = alert (`It is ${tokyoTime}`);
+         }
+         if (event.target.value ==="paris") {
             let parisTime = moment()
                 .tz("Europe/Paris")
                 .format("dddd, MMMM D, YYYY h:mm A");
             let parisElement = document.querySelector("#paris");
-            parisElement.innerHTML = alert(`It is ${parisTime}`);   
+            parisElement.innerHTML =alert(`It is ${parisTime}`);   
        }
+       if (event.target.value==="sydney") {
+        let sydneyTime = moment()
+        .tz("Australia/Sydney")
+        .format("dddd, MMMM D, YYYY h:mm A");
+        let sydneyElement = document.querySelector("#sydney");
+        sydneyElement = alert(`It is ${sydneyTime}`);
+       }
+      }
 
-  
     let countriesSelect = document.querySelector("#countries");
     countriesSelect.addEventListener("change", showSelectedCountry);
   </script>
